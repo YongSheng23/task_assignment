@@ -360,7 +360,7 @@ class DivPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     print (color);
     Paint paint = Paint()
-      ..color = colorsSelected(color)
+      ..color = Colors.red
       ..style = PaintingStyle.stroke
       ..strokeWidth = 10;
 
@@ -370,8 +370,11 @@ class DivPainter extends CustomPainter {
       ..lineTo(size.width, size.height + 14);
 
     final path2 = Path()
-      ..moveTo(0, size.height + 14)
-      ..lineTo(size.width, 24);
+      // ..moveTo(0, size.height)
+      // ..lineTo(size.width, 24);
+      ..moveTo(0, size.height)
+      ..quadraticBezierTo(size.width * 0, 85 , size.width * 0.80, 85)
+      ..quadraticBezierTo(size.width, size.height*0.65 , size.width, size.height*0.45);
 
     index.isEven
         ? canvas.drawPath(path1, paint)
