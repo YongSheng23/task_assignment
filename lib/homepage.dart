@@ -1,19 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:level_map/level_map.dart';
-import 'dart:math' as math;
-import 'custom_stepper.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -27,10 +15,11 @@ class _MyHomePageState extends State<MyHomePage> {
   String dropdownValue = "Yellow";
   final _scrollController = ScrollController();
 
+  @override
   void initState() {
     super.initState();
 
-    // Setup the listener.
+    // Setup the listener to know when user scroll to bottom.
     _scrollController.addListener(() {
       if (_scrollController.position.atEdge) {
         bool isTop = _scrollController.position.pixels == 0;
